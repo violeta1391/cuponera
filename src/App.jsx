@@ -77,6 +77,7 @@ function App() {
               🐭
               <span className="lagrima l1">💧</span>
               <span className="lagrima l2">💧</span>
+              <span className="lagrima l2">💧</span>
             </div>
           </div>
           <button className="btn volver" onClick={() => setScreen('intro')}>
