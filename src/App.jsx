@@ -56,11 +56,11 @@ function App() {
     <div className={`app-container screen-${screen}`}>
       {screen === 'intro' && (
         <div className="card">
-          <h1>Hola Topaia 💜💚</h1>
+          <h1>Hola Topaia</h1>
           <p className="pregunta">¿Querés ser mi mejor amiga por siempre?</p>
           <div className="botones">
             <button className="btn si" onClick={() => setScreen('yes')}>
-              Sí
+              Si
             </button>
             <button className="btn no" onClick={() => setScreen('no')}>
               No
@@ -72,7 +72,13 @@ function App() {
       {screen === 'yes' && (
         <div className="card">
           <div className="sello">RESPUESTA INCORRECTA</div>
-          <div className="raton">🐭💦</div>
+          <div className="raton-escena">
+            <div className="raton">
+              🐭
+              <span className="lagrima l1">💧</span>
+              <span className="lagrima l2">💧</span>
+            </div>
+          </div>
           <button className="btn volver" onClick={() => setScreen('intro')}>
             Volver a intentar
           </button>
@@ -80,22 +86,24 @@ function App() {
       )}
 
       {screen === 'no' && (
-        <div className="card premio">
+        <>
           <FallingItems />
-          <h1>🎉 ¡Ganaste! 🎉</h1>
-          <p className="pregunta">
-            Te ganaste una cuponera de papas al horno con queso
-          </p>
-          <div className="cuponera">
-            <p className="cuponera-titulo">🍟 Cuponera de papas 🧀</p>
-            <p className="cuponera-conteo">
-              {usos} / {MAX_USOS} usos disponibles
+          <div className="card premio">
+            <h1 className="verde">Felicitaciones</h1>
+            <p className="pregunta">
+              Te ganaste una cuponera de papas al horno con queso 🎉
             </p>
-            <button className="btn canjear" onClick={canjear} disabled={usos === 0}>
-              {usos === 0 ? 'Ya no quedan usos 😢' : 'Canjear una porción'}
-            </button>
+            <div className="cuponera">
+              <p className="cuponera-titulo">🍟 Cuponera de papas 🧀</p>
+              <p className="cuponera-conteo">
+                {usos} / {MAX_USOS} usos disponibles
+              </p>
+              <button className="btn canjear" onClick={canjear} disabled={usos === 0}>
+                {usos === 0 ? 'Ya no quedan usos 😢' : 'Canjear una porción'}
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   )
